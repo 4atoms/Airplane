@@ -1,10 +1,10 @@
 import React from "react";
 import  ReactDOM  from "react-dom";
-import Homepage from "./Pages/homepage";
+import Routes from "./Pages/routes";
+
+
 ReactDOM.render(
-    <div>
-    <Homepage/>
-    <div>Hello my branch</div>
-    
-    </div>,document.getElementById("app-root")
+    <>
+    <Routes/>
+    </>,document.getElementById("app-root")
     );

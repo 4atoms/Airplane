@@ -1,8 +1,7 @@
 const Homepage=()=>
 {
     return(
-        <div>Home</div>
+        <div>This is homepage</div>        
     );
-
 };
-export default Homepage;
+export default Homepage
