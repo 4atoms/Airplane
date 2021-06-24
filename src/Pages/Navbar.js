@@ -1,5 +1,5 @@
 import React from "react";
-// import { bool } from "prop-types";
+import { bool } from "prop-types";
 import  ReactDOM  from "react-dom";
 import './index.css';
 const Navbar = ({isColorRed}) => {
@@ -33,13 +33,13 @@ const Navbar = ({isColorRed}) => {
     );
     
 };
-// Navbar.propTypes = {
-//     isColorRed: bool
-// } 
+
+// Navbar.propTypes={
+//     isColorRed :bool
+// }
 
 // Navbar.defaultProps = {
 //      color: "blue"
 // } 
-
 
 export default Navbar; 
