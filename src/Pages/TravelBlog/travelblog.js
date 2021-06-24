@@ -1,11 +1,12 @@
 import React from "react";
-import './index.css';
+// import './index.css';
+import { Flexcontainer } from "./Travelblog.style";
 
 const Travelblog = () => {
     return(
        <>
        <h1 style={{fontSize: '42px'}}>Travel Blog</h1>
-        <div class="flex-container">
+        <Flexcontainer>
             
             <div class="flex-item">
                 <img src="https://seoimgak.mmtcdn.com/blog/sites/default/files/hero2_28charter_1.jpg?6Aw5c27vU4CZHFxUGqPGmRfFhJZWkXek" style={{width: '80%'}} />
@@ -31,7 +32,7 @@ const Travelblog = () => {
                 <p>Protect Yourself with MakeMyTrip’s Special COVID-19  In...</p>
             </div>
 
-        </div>
+        </Flexcontainer>
         </>
     );
     
@@ -39,7 +40,6 @@ const Travelblog = () => {
 {/* // Navbar.propTypes = {
 //     isColorRed: bool
 // } 
-
 // Navbar.defaultProps = {
 //      color: "blue"
 // }  */}
