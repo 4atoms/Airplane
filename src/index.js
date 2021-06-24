@@ -1,6 +1,15 @@
 import React from "react";
 import  ReactDOM  from "react-dom";
+import Navbar from './Pages/Navbar';
+import Travelblog from './Pages/Travelblog';
+
 ReactDOM.render(
-    <div>Hello</div>,document.getElementById("app-root")
+    
+    <React.StrictMode>
+        {/* <div>Hello Archit</div> */}
+        <Navbar isColorRed={false} />
+        <Travelblog/>
+    </React.StrictMode>,
+    document.getElementById("app-root")
     
 );
