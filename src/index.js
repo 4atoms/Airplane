@@ -1,7 +1,7 @@
 import React from "react";
 import  ReactDOM  from "react-dom";
-import Navbar from './Navbar';
-import Travelblog from "./Travelblog";
+import Navbar from './Pages/Navbar';
+import Travelblog from './Pages/Travelblog';
 
 ReactDOM.render(
     
