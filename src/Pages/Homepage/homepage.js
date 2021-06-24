@@ -4,4 +4,4 @@ const Homepage=()=>
         <div>This is homepage</div>        
     );
 };
-export default Homepage
+export default Homepage;

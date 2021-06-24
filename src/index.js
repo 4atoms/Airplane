@@ -1,10 +1,10 @@
 import React from "react";
 import  ReactDOM  from "react-dom";
-import Routes from "./Pages/routes";
+import App from "./Pages/Application/app";
 
 
 ReactDOM.render(
     <>
-    <Routes/>
+    <App/>
     </>,document.getElementById("app-root")
     );
