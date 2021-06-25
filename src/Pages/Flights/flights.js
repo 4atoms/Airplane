@@ -13,6 +13,10 @@ const Flights=()=>
     .then(data =>{ let arr=JSON.stringify(data);
       setData(arr);
       console.log(data)});
+      // const display=()=>{
+      //   var myjson=JSON.parse(data);
+      //   console.log(myjson.for);
+      //   };
     return(
     <>
       <Navbar/>

@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import  Hotels  from  '../Hotels/hotels'
 import  Homepage  from '../Homepage/homepage';
