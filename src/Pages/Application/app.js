@@ -10,23 +10,19 @@ import ContactUs from '../ContactUs/contactus';
 
  const App = () => {
   return (
-    <>
-        
-      <Router>
+    <>  
+    <Router>
       <Switch>
         <Route exact path="/">
           <Homepage/>
         </Route>
         <Route  path="/flights" component={Flights} />
-        
         <Route  path="/hotels" component={Hotels} />
-      
         <Route path = "/contactus">
           <Navbar isColorRed={false} />
           <ContactUs/>
           <Footer/>
         </Route>
-        
       </Switch>
     </Router>
     {/* <Router>
