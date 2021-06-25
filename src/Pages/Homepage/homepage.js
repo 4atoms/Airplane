@@ -6,6 +6,7 @@ const Homepage=()=>
     return(
         <div> <Navbar isColorRed={false} />
         <Travelblog/>
+        <Travelblog/>
         <Footer/>
         </div>        
     );

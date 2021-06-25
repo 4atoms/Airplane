@@ -1,6 +1,7 @@
 
 import {useState} from 'react';
 import { FHeader } from './flights.style';
+import Navbar from '../Homepage/Navbar/Navbar';
 
 
 const Flights=()=>
@@ -14,6 +15,7 @@ const Flights=()=>
       console.log(data)});
     return(
     <>
+      <Navbar/>
       {/* <div>This is homepage for flights</div>   */}
       <FHeader>
         <div>Flights</div>      
