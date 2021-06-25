@@ -1,8 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import  Hotels  from  '../Hotels/hotels'
-import  Homepage  from '../Homepage/homepage';
+import  Homepage  from '../Homepage/index';
 import Flights from '../Flights/flights';
 import Footer from '../Homepage/Footer/footer';
 import Navbar from '../Homepage/Navbar/Navbar';

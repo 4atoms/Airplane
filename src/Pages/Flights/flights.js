@@ -18,7 +18,7 @@ const Flights=()=>
       <Navbar/>
       {/* <div>This is homepage for flights</div>   */}
       <FHeader>
-        <div>Flights</div>      
+        Flights      
       </FHeader>
       <pre>{data}</pre>
     </> 
