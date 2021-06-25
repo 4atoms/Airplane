@@ -1,5 +1,6 @@
 
 import {useState} from 'react';
+import { FHeader } from './flights.style';
 
 
 const Flights=()=>
@@ -13,8 +14,10 @@ const Flights=()=>
       console.log(data)});
     return(
     <>
-      <div>This is homepage for flights</div>  
-      <div>Flights</div>      
+      {/* <div>This is homepage for flights</div>   */}
+      <FHeader>
+        <div>Flights</div>      
+      </FHeader>
       <pre>{data}</pre>
     </> 
     );

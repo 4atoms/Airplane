@@ -1,7 +1,8 @@
+import { HHeader } from "./hotels.style";
 const Hotels=()=>
 {
     return(
-        <div>This is hotels</div>        
+        <div><HHeader>Hotels</HHeader></div>        
     );
 };
 export default Hotels;
