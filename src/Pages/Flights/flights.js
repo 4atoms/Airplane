@@ -14,14 +14,13 @@ const Flights=()=>
       setData(arr);
       console.log(data)});
     return(
-    <>
-      <Navbar/>
-      {/* <div>This is homepage for flights</div>   */}
-      <FHeader>
-        <div>Flights</div>      
-      </FHeader>
-      <pre>{data}</pre>
-    </> 
+      <>
+        <Navbar/>
+        <FHeader>
+          Flights      
+        </FHeader>
+        <pre>{data}</pre>
+      </> 
     );
   };
 export default Flights;
