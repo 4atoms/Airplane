@@ -44,8 +44,10 @@ const Flights=()=>
   const [name,setName]=useState([]);
   const [flightName,setFlightName] = useState ("");
   const [isShowTicket,setIsShowTicket] = useState(false);
+
   const searchFlight = () => {
-    flightdata.forEach(x=> { if (x.from === from&&x.to === to){setFlightName(x.flightName)}})
+
+    flightdata.forEach(x=> { if (x.from === from && x.to === to){setFlightName(x.flightName)}})
     showticket();
   }
   const showticket=()=>
