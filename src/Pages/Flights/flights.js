@@ -1,31 +1,103 @@
 
 import {useState} from 'react';
-import { FHeader } from './flights.style';
+import { FHeader, FlightSearch, FlightTicket,Box,Content,Airline,Boarding,SubContent,ToPlace,FromPlace,Name,Flight,Gate,Ticket,Seat,BoardingTime,Transit} from './flights.style';
 import Navbar from '../Homepage/Navbar/Navbar';
+
+var flightdata=[
+  {
+    from: "Bangalore",
+    to: "Delhi",
+    flightName: "Indigo",
+    flightNumber: "x137c",
+    id:1
+  },
+  {
+    from:"Bangalore",
+    to:"Hyderabad",
+    flightName:"Indigo",
+    flightNumber:"y137c",
+    id:2
+  },
+  {
+    from:"Bangalore",
+    to:"Goa",
+    flightName:"Indigo",
+    flightNumber:"z137c",
+    id:3
+  },
+  {
+    from:"BLR",
+    to:"GOA",
+    flightName:"IndigoW",
+    flightNumber:"z137c",
+    id:3
+  }
+
+];
 
 
 const Flights=()=>
+{
+  
+  const [from,setFrom]=useState([]);
+  const [to,setTo]=useState([]);
+  const [name,setName]=useState([]);
+  const [flightName,setFlightName] = useState ("");
+  const [isShowTicket,setIsShowTicket] = useState(false);
+  const searchFlight = () => {
+    flightdata.forEach(x=> { if (x.from === from&&x.to === to){setFlightName(x.flightName)}})
+    showticket();
+  }
+  const showticket=()=>
   {
-    const [data,setData]=useState([]);
-    // fetch('https://run.mocky.io/v3/519b5b96-0cdb-4502-b38e-8b9ce9db24c1')
-    fetch("https://run.mocky.io/v3/782a2a9c-cbbc-4995-b304-a41303a58121")
-    .then(response => response.json())
-    .then(data =>{ let arr=JSON.stringify(data);
-      setData(arr);
-      console.log(data)});
-      // const display=()=>{
-      //   var myjson=JSON.parse(data);
-      //   console.log(myjson.for);
-      //   };
+     setIsShowTicket(true);
+    
+  }
+    
     return(
     <>
       <Navbar/>
-      {/* <div>This is homepage for flights</div>   */}
+
       <FHeader>
-        <div>Flights</div>      
+      <div>Flights</div>      
       </FHeader>
-      <pre>{data}</pre>
+      
+      <FlightSearch>
+        <div>
+        <div>From <input id="From" onChange={(e) => setFrom((e.target.value).toUpperCase())}/></div>
+        <div>To <input id="To" onChange={(e) => setTo((e.target.value).toUpperCase())}/></div>
+        <div>Name <input id="Name" onChange={(e) => setName(e.target.value)}/></div>
+        </div>
+        <div><button onClick={searchFlight}>Submit</button></div>
+      </FlightSearch>
+
+      <FlightTicket>
+      <Box>
+
+      <Ticket isShowTicket={isShowTicket}>
+        <Airline>{flightName}</Airline>
+        <Boarding>Boarding pass</Boarding>
+
+        <Content>
+
+          <FromPlace>{from}</FromPlace>
+          <Transit>TO</Transit>
+          <ToPlace>{to}</ToPlace>
+
+          <SubContent>
+            <Name>PASSENGER NAME<span><br/>{name}</span></Name>
+            <Flight>FLIGHT<span><br/>X3-137C</span></Flight>
+            <Gate>GATE<br/><span>11B</span></Gate>
+            <Seat>SEAT<br/><span>45A<br/></span></Seat>
+            <BoardingTime>BOARDING TIME<br/><span>10:25PM ON JUNE 2021</span></BoardingTime>
+           </SubContent>
+
+        </Content>
+      </Ticket>
+      </Box> 
+      </FlightTicket>
     </> 
     );
-  };
+  
+};
 export default Flights;
