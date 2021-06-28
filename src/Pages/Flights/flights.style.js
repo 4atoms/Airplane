@@ -180,8 +180,8 @@ export const Seat = styled.div`
 
 export const BoardingTime = styled.div`
     position: absolute;
-    top: 60px;
-    left: 10px;
+    top: 10px;
+    left: 430px;
     font-family: Arial Narrow, Arial;
     font-weight: bold;
     font-size: 14px;

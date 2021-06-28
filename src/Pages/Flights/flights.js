@@ -61,8 +61,10 @@ const Flights=()=>
       <Navbar/>
 
       <FHeader>
-      <div>Flights</div>      
+      <div>Flights</div> 
+          
       </FHeader>
+      
       
       <FlightSearch>
         <div>
@@ -72,6 +74,7 @@ const Flights=()=>
         </div>
         <div><button onClick={searchFlight}>Submit</button></div>
       </FlightSearch>
+      <div>{flightdata.map(x => {return(<div>{x.flightNumber}</div>);})}</div> 
 
       <FlightTicket>
       <Box>
