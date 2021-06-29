@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react";
 import { InputContainer, Container,InputComponent,SelectComponent,OptionComponent,OuterContainer,ButtonComponent,InputElement } from "./hotels.style";
-import Navbar from '../Homepage/Navbar/Navbar';
-import Footer from "../Homepage/Footer/footer";
+import Navbar from '../../Components/Navbar/Navbar';
+import Footer from "../../Components/Footer/footer";
 const Hotels=()=>
 {
 

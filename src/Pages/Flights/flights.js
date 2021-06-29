@@ -1,6 +1,6 @@
 import {useState} from 'react';
 import { FHeader, FlightSearch, FlightTicket,Box,Content,Airline,Boarding,SubContent,ToPlace,FromPlace,Name,Flight,Gate,Ticket,Seat,BoardingTime,Transit} from './flights.style';
-import Navbar from '../Homepage/Navbar/Navbar';
+import Navbar from '../../Components/Navbar/Navbar';
 
 var flightdata=[
   {
