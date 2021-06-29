@@ -1,14 +1,14 @@
 import styled from "styled-components";
 
 
-export const FHeader=styled.div`
+export const FHeader = styled.div`
     display:flex;
     justify-content:center;
     background-color:rgba(25,25,0,0.4);
     font-size:50px;`
 ;
 
-export const FlightSearch=styled.div`
+export const FlightSearch = styled.div`
     display:flex;
     &>div>div
         {
@@ -25,13 +25,13 @@ export const FlightSearch=styled.div`
         }
 `;
 
-export const FlightTicket=styled.div`
+export const FlightTicket = styled.div`
     margin-top:50px;
     display:flex;
     justify-content:center;
 `;
 
-export const Box=styled.div`
+export const Box = styled.div`
     position: absolute;
     top: calc(50% - 125px);
     top: -webkit-calc(50% - 125px);
@@ -39,7 +39,7 @@ export const Box=styled.div`
     left: -webkit-calc(50% - 300px);
 `;
 
-export const Content=styled.div`
+export const Content = styled.div`
     position: absolute;
     top: 40px;
     width: 100%;
@@ -47,7 +47,7 @@ export const Content=styled.div`
     background: #eee;
 `;
 
-export const Airline=styled.span`
+export const Airline = styled.span`
     position: absolute;
     top: 10px;
     left: 10px;
@@ -57,7 +57,7 @@ export const Airline=styled.span`
     color: rgb(0, 0, 0);
 `;
 
-export const Boarding=styled.span`
+export const Boarding = styled.span`
     position: absolute;
     top: 10px;
     right: 220px;
@@ -66,7 +66,7 @@ export const Boarding=styled.span`
     color: rgba(255,255,255,0.6);
 `;
 
-export const SubContent=styled.div`
+export const SubContent = styled.div`
     background: #e5e5e5;
     width: 100%;
     height: 100px;
@@ -74,7 +74,7 @@ export const SubContent=styled.div`
     top: 70px;
 `;
 
-export const FromPlace=styled.span`
+export const FromPlace = styled.span`
     position: absolute;
     top: 10px;
     left: 20px;
@@ -83,7 +83,7 @@ export const FromPlace=styled.span`
     color: #222;
 `;
 
-export const ToPlace=styled.span`
+export const ToPlace = styled.span`
     position: absolute;
     top: 10px;
     left: 180px;
@@ -92,7 +92,7 @@ export const ToPlace=styled.span`
     color: #222;
 `; 
 
-export const Name=styled.span`
+export const Name = styled.span`
     position: absolute;
     top: 10px;
     left: 10px;
@@ -108,19 +108,19 @@ export const Name=styled.span`
         }
 `;
 
-export const FromPlaceSlip=styled.span`
+export const FromPlaceSlip = styled.span`
     font-size: 30px;
     top: 20px;
     left: 410px;
 `;
 
-export const ToPlaceSlip=styled.span`
+export const ToPlaceSlip = styled.span`
     font-size: 30px;
     top: 20px;
     left: 530px;
 `;
 
-export const Flight=styled.span`
+export const Flight = styled.span`
     position: absolute;
     top: 10px;
     left: 180px;
@@ -136,7 +136,7 @@ export const Flight=styled.span`
         }
 `;
 
-export const Gate=styled.span`
+export const Gate = styled.span`
     position: absolute;
     top: 10px;
     left: 280px;
@@ -200,6 +200,9 @@ export const Transit = styled.span`
     margin-left:105px;
 `; 
 
+export const FlightsDisplay = styled.div`
+    display:  ${(props) => props.isFlight ? "flex" : "none"};
+`;
 
 
 

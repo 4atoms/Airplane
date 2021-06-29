@@ -1,6 +1,6 @@
 
 import {useState} from 'react';
-import { FHeader, FlightSearch, FlightTicket,Box,Content,Airline,Boarding,SubContent,ToPlace,FromPlace,Name,Flight,Gate,Ticket,Seat,BoardingTime,Transit} from './flights.style';
+import { FHeader, FlightSearch, FlightTicket,Box,Content,Airline,Boarding,SubContent,ToPlace,FromPlace,Name,Flight,Gate,Ticket,Seat,BoardingTime,Transit,FlightsDisplay} from './flights.style';
 import Navbar from '../Homepage/Navbar/Navbar';
 
 var flightdata=[
@@ -30,10 +30,53 @@ var flightdata=[
     to:"GOA",
     flightName:"IndigoW",
     flightNumber:"z137c",
-    id:3
-  }
-
+    id:4
+  },
+  {
+    from: "Bangalore",
+    to: "Delhi",
+    flightName: "Indigo",
+    flightNumber: "x137c",
+    id:5
+  },
+  {
+    from:"Bangalore",
+    to:"Hyderabad",
+    flightName:"Indigo",
+    flightNumber:"y137c",
+    id:6
+  },
+  {
+    from:"Bangalore",
+    to:"Goa",
+    flightName:"Indigo",
+    flightNumber:"z137c",
+    id:7
+  },
+  {
+    from:"BLR",
+    to:"GOA",
+    flightName:"IndigoW",
+    flightNumber:"z137c",
+    id:8
+  },
+  {
+    from:"BLR",
+    to:"GOA",
+    flightName:"Kingfisher",
+    flightNumber:"z137c",
+    id:9
+  },
+  {
+    from:"BLR",
+    to:"GOA",
+    flightName:"Air India",
+    flightNumber:"z137c",
+    id:10
+  },
 ];
+
+var avlFlights=[];
 
 
 const Flights=()=>
@@ -44,12 +87,30 @@ const Flights=()=>
   const [name,setName]=useState([]);
   const [flightName,setFlightName] = useState ("");
   const [isShowTicket,setIsShowTicket] = useState(false);
+  const [isFlight,setFlight] = useState(false);
 
   const searchFlight = () => {
 
-    flightdata.forEach(x=> { if (x.from === from && x.to === to){setFlightName(x.flightName)}})
-    showticket();
+    flightdata.forEach(x=> { if (x.from === from && x.to === to){avlFlights.push(x)}})
+     showFlight();
+     showticket();
   }
+
+  const viewTicket = () => {
+    
+    showticket();
+
+  }
+
+  const planeId = () =>{};
+
+  const showFlight = () => {
+    
+    setFlight(true);
+  
+  }
+
+  
   const showticket=()=>
   {
      setIsShowTicket(true);
@@ -74,7 +135,7 @@ const Flights=()=>
         </div>
         <div><button onClick={searchFlight}>Submit</button></div>
       </FlightSearch>
-      <div>{flightdata.map(x => {return(<div>{x.flightNumber}</div>);})}</div> 
+      <FlightsDisplay isFlight={isFlight}>{avlFlights.map(x => {return(<div>{x.flightName}<div>{x.flightNumber}<button planeId={x.id} onClick={viewTicket}>View</button></div></div>);})}</FlightsDisplay> 
 
       <FlightTicket>
       <Box>
