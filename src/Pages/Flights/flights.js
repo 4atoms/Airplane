@@ -92,10 +92,12 @@ const Flights=()=>
 
     flightdata.forEach(x=> { if (x.from === from && x.to === to){avlFlights.push(x)}})
      showFlight();
-     showticket();
+    //  showticket();
   }
 
   const viewTicket = () => {
+
+    setFlightName()
     
     showticket();
 
@@ -134,6 +136,7 @@ const Flights=()=>
         </div>
         <div><button onClick={searchFlight}>Submit</button></div>
       </FlightSearch>
+
       <FlightsDisplay isFlight={isFlight}>{avlFlights.map(x => {return(<div>{x.flightName}<div>{x.flightNumber}<button planeId={x.id} onClick={viewTicket}>View</button></div></div>);})}</FlightsDisplay> 
 
       <FlightTicket>
