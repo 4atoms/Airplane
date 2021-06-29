@@ -11,6 +11,7 @@ import {
   HotelContainer,
   HotelDetails,
 } from "./hotels.style";
+import XSlider from "../../Components/InputComponent/XSlider"
 import Navbar from "../../Components/Navbar/Navbar";
 import Footer from "../../Components/Footer/footer";
 
@@ -21,6 +22,7 @@ var goaAPI = "https://run.mocky.io/v3/24c6c3ad-9d4a-4a14-8e51-05f2a9e07fcf";
 const Hotels = () => {
   const [value, setValue] = useState("Bangalore");
   const [apiresult, setApiResult] = useState([]);
+  const [rating, setRating] = useState("3");
 
   useEffect(() => {
     console.log("Value changed for city : " + apiresult);
@@ -30,6 +32,10 @@ const Hotels = () => {
     console.log("city selected " + e.value);
     setValue(e.value);
   };
+
+  const updateRating = (rating) => {
+      setRating(rating);
+  }
 
   var hotelList;
   const getHotels = async (city) => {
@@ -48,6 +54,7 @@ const Hotels = () => {
     }
     const response = await fetch(api);
     const jsonArray = await response.json();
+    
 
     hotelList = jsonArray.hotels;
     console.log("api response", { hotelList });
@@ -95,6 +102,9 @@ const Hotels = () => {
             Number of guests
             <InputComponent type="number" />
           </InputElement>
+          <InputElement>
+            <XSlider onRatingChange = {updateRating} id="customSelector" name = "rating-input" label = "Min rating : " min = "0" max = "5" type = "range" step = "0.5"/> 
+            </InputElement>
         </InputContainer>
         <ButtonComponent>
           <InputComponent
@@ -104,7 +114,7 @@ const Hotels = () => {
           />
         </ButtonComponent>
         <HotelContainer>
-          {apiresult.map((i) => {
+          {apiresult.filter(hotel => hotel.rating > rating).map((i) => {
             return (
               <HotelDetails key={i.name} ratings={i.rating}>
                 <div>
