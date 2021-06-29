@@ -97,7 +97,6 @@ const Flights=()=>
 
   const viewTicket = () => {
 
-    setFlightName()
     
     showticket();
 
@@ -137,7 +136,7 @@ const Flights=()=>
         <div><button onClick={searchFlight}>Submit</button></div>
       </FlightSearch>
 
-      <FlightsDisplay isFlight={isFlight}>{avlFlights.map(x => {return(<div>{x.flightName}<div>{x.flightNumber}<button planeId={x.id} onClick={viewTicket}>View</button></div></div>);})}</FlightsDisplay> 
+      <FlightsDisplay isFlight={isFlight}>{avlFlights.map(x => {return(<div>{x.flightName}<div>{x.flightNumber}<button planeId={x.id} onClick={viewTicket()}>View</button></div></div>);})}</FlightsDisplay> 
 
       <FlightTicket>
       <Box>
