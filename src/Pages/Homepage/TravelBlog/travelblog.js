@@ -1,5 +1,8 @@
 import React from "react";
 import { Flexcontainer,Flexcontainerlogo,Flexcontainerlogoinner } from "./travelblog.style";
+import Accordian from './Accordian';
+
+
 
 var blogdata=[
   {
@@ -21,6 +24,25 @@ var blogdata=[
     image:"https://seoimgak.mmtcdn.com/blog/sites/default/files/heroq.jpg?RV9Bjige7_b1rqOt.01OrFbUgqTlRwtG",
     detail:"Protect Yourself with MakeMyTrip’s Special COVID-19",
     id:4
+  }
+
+];
+
+const accordiandata=[
+  {
+    title: "title 1",
+    info: "#FlyLikeAStar with MakeMyTrip’s New Charter Flight Serv...",
+    id:1
+  },
+  {
+    title:"title 2",
+    info:"6 things to do on business trip",
+    id:2
+  },
+  {
+    title:"title 3",
+    info:"Your One-Stop Resource For Country-Wise Travel Guidelin...",
+    id:3
   }
 
 ];
@@ -85,6 +107,20 @@ const Travelblog = () => {
         })}
 
         </Flexcontainer>
+        </div>
+
+
+        <div className='container'>
+          <h1>Accordian Section</h1>
+          
+
+            {accordiandata.map((accord) => {
+              return (
+                      <Accordian key={accord.id} {...accord}></Accordian>
+                       );
+         	  })
+            }
+          
         </div>
 
         </>

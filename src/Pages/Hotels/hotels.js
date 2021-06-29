@@ -1,22 +1,9 @@
-import React, { useState, useEffect } from "react";
-import {
-  InputContainer,
-  Container,
-  InputComponent,
-  SelectComponent,
-  OptionComponent,
-  OuterContainer,
-  ButtonComponent,
-  HotelContainer,
-  HotelDetails,
-  InputElement,
-} from "./hotels.style";
-import Navbar from "../Homepage/Navbar/Navbar";
-import Footer from "../Homepage/Footer/footer";
-const Hotels = () => {
-  var puneAPI = "https://run.mocky.io/v3/f13753b4-bde1-422d-aa5e-c34768e28d95";
-  var bangaloreAPI = "https://run.mocky.io/v3/56973ad0-0797-4c61-8fc8-c7a5e57ad79c";
-  var goaAPI = "https://run.mocky.io/v3/24c6c3ad-9d4a-4a14-8e51-05f2a9e07fcf";
+import React, {useState, useEffect} from "react";
+import { InputContainer, Container,InputComponent,SelectComponent,OptionComponent,OuterContainer,ButtonComponent,InputElement } from "./hotels.style";
+import Navbar from '../../Components/Navbar/Navbar';
+import Footer from "../../Components/Footer/footer";
+const Hotels=()=>
+{
 
   const [value, setValue] = useState("Bangalore");
   const [apiresult, setApiResult] = useState([]);
