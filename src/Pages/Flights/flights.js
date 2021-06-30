@@ -17,6 +17,7 @@ import {
   Seat,
   BoardingTime,
   Transit,
+  FlightsDisplay,
 } from "./flights.style";
 import Navbar from "../../Components/Navbar/Navbar";
 
@@ -36,8 +37,8 @@ var flightdata = [
     id: 2,
   },
   {
-    from: "Bangalore",
-    to: "Goa",
+    from: "GOA",
+    to: "BLR",
     flightName: "Indigo",
     flightNumber: "z137c",
     id: 3,
@@ -99,7 +100,7 @@ const Flights = () => {
   const [from, setFrom] = useState([]);
   const [to, setTo] = useState([]);
   const [name, setName] = useState([]);
-  //const [flightName, setFlightName] = useState("");
+  const [flightName, setFlightName] = useState("");
   const [isShowTicket, setIsShowTicket] = useState(false);
   const [isFlight, setFlight] = useState(false);
 
@@ -110,6 +111,7 @@ const Flights = () => {
       }
     });
     showFlight();
+    console.log(avlFlights.length);
     //  showticket();
   };
 
@@ -117,7 +119,7 @@ const Flights = () => {
     showticket();
   };
 
-  // const planeId = () => {};
+  const planeId = () => {};
 
   const showFlight = () => {
     setFlight(true);
@@ -159,27 +161,26 @@ const Flights = () => {
           <button onClick={searchFlight}>Submit</button>
         </div>
       </FlightSearch>
-
-      <div isFlight={isFlight}>
-        {avlFlights.map((x, idx) => {
+      <FlightsDisplay isFlight={isFlight}>
+        {avlFlights.map((x) => {
           return (
-            <div key={idx}>
+            <div>
               {x.flightName}
               <div>
                 {x.flightNumber}
-                <button planeId={x.id} onClick={viewTicket()}>
+                <button planeId={x.id} onClick={viewTicket}>
                   View
                 </button>
               </div>
             </div>
           );
         })}
-      </div>
+      </FlightsDisplay>
 
       <FlightTicket>
         <Box>
           <Ticket isShowTicket={isShowTicket}>
-            <Airline>Indigo</Airline>
+            <Airline>{flightName}</Airline>
             <Boarding>Boarding pass</Boarding>
 
             <Content>
