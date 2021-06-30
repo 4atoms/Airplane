@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-key */
 import React, { useState } from "react";
 import {
   FHeader,
@@ -100,7 +101,7 @@ const Flights = () => {
   const [from, setFrom] = useState([]);
   const [to, setTo] = useState([]);
   const [name, setName] = useState([]);
-  const [flightName, setFlightName] = useState("");
+  // const [flightName, setFlightName] = useState("");
   const [isShowTicket, setIsShowTicket] = useState(false);
   const [isFlight, setFlight] = useState(false);
 
@@ -119,7 +120,7 @@ const Flights = () => {
     showticket();
   };
 
-  const planeId = () => {};
+  // const planeId = () => {};
 
   const showFlight = () => {
     setFlight(true);
@@ -180,7 +181,7 @@ const Flights = () => {
       <FlightTicket>
         <Box>
           <Ticket isShowTicket={isShowTicket}>
-            <Airline>{flightName}</Airline>
+            <Airline></Airline>
             <Boarding>Boarding pass</Boarding>
 
             <Content>

@@ -40,11 +40,17 @@
             "single",
             "avoid-escape"
         ],
-        "prettier/prettier": "error",
+         "prettier/prettier": [
+            "warn",
+            {
+                "endOfLine": "auto"
+            }
+        ],
         "import/prefer-default-export": "off",
         "no-underscore-dangle": "off",
         "react/display-name": "off",
         "react/no-children-prop": "off"
     },
     "parser": "babel-eslint"
+    
 }
