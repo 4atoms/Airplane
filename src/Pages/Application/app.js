@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Hotels from "../Hotels/hotels";
 import Homepage from "../Homepage/index";
-import Flights from "../Flights/flights";
+import Flights from "../Flights";
 import Footer from "../../Components/Footer/footer";
 import Navbar from "../../Components/Navbar/Navbar";
 import ContactUs from "../ContactUs/contactus";

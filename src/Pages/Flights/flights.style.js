@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import img from "./flightSample.jpg";
+import img from "./flightSample2.jpg";
 
 export const MainBody = styled.div`
   background-image: url(${img});
