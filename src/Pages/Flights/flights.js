@@ -1,6 +1,5 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable react/jsx-key */
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import TimePick from "../../Components/Timepicker/timepick";
 import {
   MainBody,
   FHeader,
@@ -21,83 +20,82 @@ import {
   BoardingTime,
   Transit,
   FlightsDisplay,
-  Fdiv,
-  TimeCol,
-  Container,
-  Cell,
-  TimePicker,
+  FlexOutter,
+  BlueDiv,
+  CloseButton,
 } from "./flights.style";
 import Navbar from "../../Components/Navbar/Navbar";
+import Footer from "../../Components/Footer/footer";
 
 var flightdata = [
   {
-    from: "Bangalore",
-    to: "Delhi",
+    from: "BLR",
+    to: "DEL",
     flightName: "Indigo",
-    flightNumber: "x137c",
+    flightNumber: "X137C",
     id: 1,
   },
   {
-    from: "Bangalore",
-    to: "Hyderabad",
-    flightName: "Indigo",
-    flightNumber: "y137c",
+    from: "BLR",
+    to: "HYD",
+    flightName: "Go Indigo",
+    flightNumber: "Y137C",
     id: 2,
   },
   {
-    from: "Bangalore",
-    to: "Goa",
-    flightName: "Indigo",
-    flightNumber: "z137c",
+    from: "BLR",
+    to: "GOA",
+    flightName: "Yo Indigo",
+    flightNumber: "Z137C",
     id: 3,
   },
   {
     from: "BLR",
     to: "GOA",
-    flightName: "IndigoW",
-    flightNumber: "z137c",
+    flightName: "Indigo Way",
+    flightNumber: "Z137C",
     id: 4,
   },
   {
-    from: "Bangalore",
-    to: "Delhi",
-    flightName: "Indigo",
-    flightNumber: "x137c",
+    from: "DEL",
+    to: "BLR",
+    flightName: "Indigo Air",
+    flightNumber: "X137C",
     id: 5,
   },
   {
-    from: "Bangalore",
-    to: "Hyderabad",
-    flightName: "Indigo",
-    flightNumber: "y137c",
+    from: "HYD",
+    to: "BLR",
+    flightName: "Indigo Nav",
+    flightNumber: "Y137C",
     id: 6,
   },
   {
-    from: "Bangalore",
-    to: "Goa",
-    flightName: "Indigo",
-    flightNumber: "z137c",
+    from: "GOA",
+    to: "BLR",
+    flightName: "IndiGoa",
+    flightNumber: "G137C",
     id: 7,
   },
   {
     from: "BLR",
     to: "GOA",
     flightName: "IndigoW",
-    flightNumber: "z137c",
+    flightNumber: "A137C",
     id: 8,
   },
   {
     from: "BLR",
     to: "GOA",
     flightName: "Kingfisher",
-    flightNumber: "z137c",
+    flightNumber: "Z137C",
     id: 9,
   },
   {
     from: "BLR",
     to: "GOA",
     flightName: "Air India",
-    flightNumber: "z137c",
+    flightNumber: "Z137C",
     id: 10,
   },
 ];
@@ -108,11 +106,14 @@ const Flights = () => {
   const [from, setFrom] = useState("");
   const [to, setTo] = useState("");
   const [name, setName] = useState("");
-  //const [flightName, setFlightName] = useState("");
+  const [flightNumber, setFlightNumber] = useState("");
+  const [flightName, setFlightName] = useState("");
   const [isShowTicket, setIsShowTicket] = useState(false);
   const [isFlight, setFlight] = useState(false);
-  const [hourvals, setHour] = useState("00");
-  const [minutevals, setMin] = useState("00");
+  const [isSearch, setSearch] = useState(true);
+  useEffect(() => {}, [isFlight]);
+
+  //Fucntion that runs through FlightData and calls for a display of flights that match the queries
 
   const searchFlight = () => {
     flightdata.forEach((x) => {
@@ -128,17 +129,18 @@ const Flights = () => {
     setFlight(true);
   };
 
-  const showticket = () => {
+  //Function to fetch Plane Name and number from array and set it using setState
+
+  const showticket = (planeid) => {
+    setSearch(false);
+    avlFlights.forEach((x) => {
+      if (x.id == planeid) {
+        setFlightName(x.flightName);
+        setFlightNumber(x.flightNumber);
+      }
+    });
     setIsShowTicket(true);
   };
-  var hours = ["00", "01", "03", "04", "05", "06", "07", "08", "09", "10"];
-  var mins = ["00", "01", "03", "04", "05", "06", "07", "08", "09", "10"];
-  for (let i = 11; i < 24; i++) {
-    hours.push(i);
-  }
-  for (let i = 11; i < 60; i++) {
-    mins.push(i);
-  }
 
   return (
     <MainBody>
@@ -148,83 +150,96 @@ const Flights = () => {
         <div>Flights</div>
       </FHeader>
 
-      <FlightSearch>
-        <div>
-          <div>
-            From{" "}
+      {/* This is to display form to search for flights where from and to are set to later be used as queries to go through available flight data */}
+
+      <FlightSearch isSearch={isSearch}>
+        <FlexOutter>
+          <li>
+            <label>From</label>
             <input
-              id="From"
+              placeholder="City"
               onChange={(e) => setFrom(e.target.value.toUpperCase())}
             />
-          </div>
-          <div>
-            To{" "}
+          </li>
+          <li>
+            <label>Destination</label>
             <input
-              id="To"
+              placeholder="City"
               onChange={(e) => setTo(e.target.value.toUpperCase())}
             />
-          </div>
-          <div>
-            Name <input id="Name" onChange={(e) => setName(e.target.value)} />
-          </div>
-        </div>
-        <TimePicker placeholder={hourvals + ":" + minutevals}></TimePicker>
-        <Fdiv>
-          <Container>
-            <TimeCol>
-              {hours.map((x) => {
-                return (
-                  <Cell key={x} onClick={() => setHour(x)}>
-                    {x}
-                  </Cell>
-                );
-              })}
-            </TimeCol>
-            <TimeCol>
-              {mins.map((x) => {
-                return (
-                  <Cell key={x} onClick={() => setMin(x)}>
-                    {x}
-                  </Cell>
-                );
-              })}
-            </TimeCol>
-          </Container>
-        </Fdiv>
-        <div>
-          <button onClick={searchFlight}>Submit</button>
-        </div>
+          </li>
+          <li>
+            <label>Passenger Name</label>
+            <input
+              placeholder="Name"
+              onChange={(e) => setName(e.target.value.toUpperCase())}
+            />
+          </li>
+          <li>
+            <label>Flight Time</label>
+          </li>
+          <TimePick />
+          <li>
+            <button onClick={searchFlight}>Submit</button>
+          </li>
+          <li></li>
+        </FlexOutter>
       </FlightSearch>
 
+      {/*This portion becomes visible when available flights are to be displayed, it uses map function with key as id property of flight object */}
+
       <FlightsDisplay isFlight={isFlight}>
-        {avlFlights.map((x) => {
-          return (
-            <div key={x.id}>
-              <div>{x.flightName}</div>
-              {x.flightNumber}
-              <button onClick={showticket}>View</button>
-            </div>
-          );
-        })}
-        {/* 
-              <div>
-                {x.flightNumber}
-                <button planeId={x.id} onClick={viewTicket()}>
+        <FlexOutter>
+          {avlFlights.map((x) => {
+            return (
+              <li key={x.id}>
+                <BlueDiv>{x.flightNumber}</BlueDiv>
+                <div>{x.flightName}</div>
+                <button
+                  onClick={() => {
+                    showticket(x.id);
+                  }}
+                >
                   View
                 </button>
-              </div> */}
+              </li>
+            );
+          })}
+          <li>
+            <button
+              onClick={() => {
+                setSearch(true);
+              }}
+            >
+              Modify Search
+            </button>
+          </li>
+        </FlexOutter>
       </FlightsDisplay>
+
+      {/*This is to display the boarding pass when isShowTicket is set to true which is initially set to false */}
 
       <FlightTicket>
         <Box>
           <Ticket isShowTicket={isShowTicket}>
-            <Airline>Indigo</Airline>
+            {/*Top Section of Boarding pass with Airline name, Boarding pass title and a close button to close Digital Boarding Pass */}
+
+            <Airline>{flightName}</Airline>
+            <CloseButton
+              onClick={() => {
+                setIsShowTicket(false);
+              }}
+            >
+              X
+            </CloseButton>
             <Boarding>Boarding pass</Boarding>
 
+            {/*This the main section with all the details of the flight with passenger name and boarding time */}
+
             <Content>
-              <FromPlace>blr</FromPlace>
+              <FromPlace>{from}</FromPlace>
               <Transit>TO</Transit>
-              <ToPlace>goa</ToPlace>
+              <ToPlace>{to}</ToPlace>
 
               <SubContent>
                 <Name>
@@ -233,7 +248,7 @@ const Flights = () => {
                 </Name>
                 <Flight>
                   FLIGHT
-                  <div>X3-137C</div>
+                  <div>{flightNumber}</div>
                 </Flight>
                 <Gate>
                   GATE
@@ -252,6 +267,7 @@ const Flights = () => {
           </Ticket>
         </Box>
       </FlightTicket>
+      <Footer />
     </MainBody>
   );
 };

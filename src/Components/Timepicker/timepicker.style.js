@@ -1,9 +1,11 @@
 import styled from "styled-components";
 
+export const MainTime = styled.div`
+  flex-direction: column;
+`;
+
 export const Fdiv = styled.div`
-  margin: 5px;
-  z-index: 99;
-  position: fixed;
+  top: 187px;
   flex-wrap: wrap;
   display: ${(props) => (props.isDrop ? "flex" : "none")};
 `;
@@ -31,8 +33,8 @@ export const Cell = styled.button`
 export const TimePicker = styled.input`
   margin-top: 10px;
   height: 40px;
-  width: 80px;
-  font-size: xx-large;
+  width: 73px;
+  font-size: 28px;
   justify-content: center;
   &:focus {
     box-shadow: 0 0 15px rgba(26 174 219);
@@ -40,9 +42,9 @@ export const TimePicker = styled.input`
 `;
 
 export const OkButton = styled.button`
-  width: 100%;
-  color: rgba(26 174 219);
-  font-color: white;
+  width: 80px;
+  background-color: rgba(26 174 219);
+  color: white;
 `;
 
 export const LineBreak = styled.div`
