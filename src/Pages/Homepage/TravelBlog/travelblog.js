@@ -149,10 +149,10 @@ const Travelblog = () => {
 
       <div className="container">
         <h1>Accordian Section</h1>
-
-        {accordiandata.map((accord) => {
+        {/* {accordiandata.map((accord) => {
           return <Accordian key={accord.id} {...accord}></Accordian>;
-        })}
+        })} */}
+        <Accordian key={accordiandata.id} />
       </div>
     </>
   );

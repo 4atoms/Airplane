@@ -1,0 +1,8 @@
+.Info {
+  max-height: 0;
+  overflow: hidden;
+}
+
+.Infoshow {
+  max-height: 9999px;
+}
