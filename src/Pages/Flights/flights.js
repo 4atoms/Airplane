@@ -1,6 +1,8 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/jsx-key */
 import React, { useState } from "react";
 import {
+  MainBody,
   FHeader,
   FlightSearch,
   FlightTicket,
@@ -19,6 +21,11 @@ import {
   BoardingTime,
   Transit,
   FlightsDisplay,
+  Fdiv,
+  TimeCol,
+  Container,
+  Cell,
+  TimePicker,
 } from "./flights.style";
 import Navbar from "../../Components/Navbar/Navbar";
 
@@ -38,8 +45,8 @@ var flightdata = [
     id: 2,
   },
   {
-    from: "GOA",
-    to: "BLR",
+    from: "Bangalore",
+    to: "Goa",
     flightName: "Indigo",
     flightNumber: "z137c",
     id: 3,
@@ -98,12 +105,14 @@ var flightdata = [
 var avlFlights = [];
 
 const Flights = () => {
-  const [from, setFrom] = useState([]);
-  const [to, setTo] = useState([]);
-  const [name, setName] = useState([]);
-  // const [flightName, setFlightName] = useState("");
+  const [from, setFrom] = useState("");
+  const [to, setTo] = useState("");
+  const [name, setName] = useState("");
+  //const [flightName, setFlightName] = useState("");
   const [isShowTicket, setIsShowTicket] = useState(false);
   const [isFlight, setFlight] = useState(false);
+  const [hourvals, setHour] = useState("00");
+  const [minutevals, setMin] = useState("00");
 
   const searchFlight = () => {
     flightdata.forEach((x) => {
@@ -111,16 +120,9 @@ const Flights = () => {
         avlFlights.push(x);
       }
     });
+    console.log(avlFlights);
     showFlight();
-    console.log(avlFlights.length);
-    //  showticket();
   };
-
-  const viewTicket = () => {
-    showticket();
-  };
-
-  // const planeId = () => {};
 
   const showFlight = () => {
     setFlight(true);
@@ -129,9 +131,17 @@ const Flights = () => {
   const showticket = () => {
     setIsShowTicket(true);
   };
+  var hours = ["00", "01", "03", "04", "05", "06", "07", "08", "09", "10"];
+  var mins = ["00", "01", "03", "04", "05", "06", "07", "08", "09", "10"];
+  for (let i = 11; i < 24; i++) {
+    hours.push(i);
+  }
+  for (let i = 11; i < 60; i++) {
+    mins.push(i);
+  }
 
   return (
-    <>
+    <MainBody>
       <Navbar />
 
       <FHeader>
@@ -158,76 +168,91 @@ const Flights = () => {
             Name <input id="Name" onChange={(e) => setName(e.target.value)} />
           </div>
         </div>
+        <TimePicker placeholder={hourvals + ":" + minutevals}></TimePicker>
+        <Fdiv>
+          <Container>
+            <TimeCol>
+              {hours.map((x) => {
+                return (
+                  <Cell key={x} onClick={() => setHour(x)}>
+                    {x}
+                  </Cell>
+                );
+              })}
+            </TimeCol>
+            <TimeCol>
+              {mins.map((x) => {
+                return (
+                  <Cell key={x} onClick={() => setMin(x)}>
+                    {x}
+                  </Cell>
+                );
+              })}
+            </TimeCol>
+          </Container>
+        </Fdiv>
         <div>
           <button onClick={searchFlight}>Submit</button>
         </div>
       </FlightSearch>
+
       <FlightsDisplay isFlight={isFlight}>
         {avlFlights.map((x) => {
           return (
-            <div>
-              {x.flightName}
-              <div>
-                {x.flightNumber}
-                <button planeId={x.id} onClick={viewTicket}>
-                  View
-                </button>
-              </div>
+            <div key={x.id}>
+              <div>{x.flightName}</div>
+              {x.flightNumber}
+              <button onClick={showticket}>View</button>
             </div>
           );
         })}
+        {/* 
+              <div>
+                {x.flightNumber}
+                <button planeId={x.id} onClick={viewTicket()}>
+                  View
+                </button>
+              </div> */}
       </FlightsDisplay>
 
       <FlightTicket>
         <Box>
           <Ticket isShowTicket={isShowTicket}>
-            <Airline></Airline>
+            <Airline>Indigo</Airline>
             <Boarding>Boarding pass</Boarding>
 
             <Content>
-              <FromPlace>{from}</FromPlace>
+              <FromPlace>blr</FromPlace>
               <Transit>TO</Transit>
-              <ToPlace>{to}</ToPlace>
+              <ToPlace>goa</ToPlace>
 
               <SubContent>
                 <Name>
                   PASSENGER NAME
-                  <span>
-                    <br />
-                    {name}
-                  </span>
+                  <div>{name}</div>
                 </Name>
                 <Flight>
                   FLIGHT
-                  <span>
-                    <br />
-                    X3-137C
-                  </span>
+                  <div>X3-137C</div>
                 </Flight>
                 <Gate>
                   GATE
-                  <br />
-                  <span>11B</span>
+                  <div>11B</div>
                 </Gate>
                 <Seat>
                   SEAT
-                  <br />
-                  <span>
-                    45A
-                    <br />
-                  </span>
+                  <div>45A</div>
                 </Seat>
                 <BoardingTime>
                   BOARDING TIME
-                  <br />
-                  <span>10:25PM ON JUNE 2021</span>
+                  <div>10:25PM ON JUNE 2021</div>
                 </BoardingTime>
               </SubContent>
             </Content>
           </Ticket>
         </Box>
       </FlightTicket>
-    </>
+    </MainBody>
   );
 };
 export default Flights;
