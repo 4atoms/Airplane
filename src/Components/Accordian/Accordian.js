@@ -22,7 +22,7 @@ const accordiandata = [
 
 const Accordian = () => {
   const [selected, setSelected] = useState(null);
-  const [data, setData] = useState([accordiandata]);
+  const [data, setData] = useState(accordiandata);
 
   useEffect(() => {}, [data]);
 
@@ -32,8 +32,7 @@ const Accordian = () => {
       title: "title new",
       info: "New Info",
     };
-    accordiandata.push(newItem);
-    setData(accordiandata);
+    setData([...data, newItem]);
   };
 
   const toggle = (i) => {
@@ -47,7 +46,7 @@ const Accordian = () => {
       <button onClick={addItem}>Add new Item</button>
       <Wrapper>
         <div>
-          {accordiandata.map((accord, i) => (
+          {data.map((accord, i) => (
             // eslint-disable-next-line react/jsx-key
             <Item key={i}>
               <Title onClick={() => toggle(i)}>
