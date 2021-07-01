@@ -22,7 +22,8 @@ var goaAPI = "https://run.mocky.io/v3/24c6c3ad-9d4a-4a14-8e51-05f2a9e07fcf";
 const Hotels = () => {
   const [value, setValue] = useState("Bangalore");
   const [apiresult, setApiResult] = useState([]);
-  const [rating, setRating] = useState("3");
+  const [minRating, setMinRating] = useState("1");
+  const [maxRating, setMaxRating] = useState("4");
 
   useEffect(() => {
     console.log("Value changed for city : " + apiresult);
@@ -33,8 +34,12 @@ const Hotels = () => {
     setValue(e.value);
   };
 
-  const updateRating = (rating) => {
-    setRating(rating);
+  const updateMinRating = (minRating) => {
+    setMinRating(minRating);
+  };
+
+  const updateMaxRating = (maxRating) => {
+    setMaxRating(maxRating);
   };
 
   var hotelList;
@@ -66,7 +71,7 @@ const Hotels = () => {
       };
     });
     setApiResult(modifiedHotelArray);
-    console.log("changed value", { apiresult });
+    console.log("changed value", { maxRating });
     return <div>{apiresult}</div>;
   };
 
@@ -103,13 +108,17 @@ const Hotels = () => {
           </InputElement>
           <InputElement>
             <XSlider
-              onRatingChange={updateRating}
-              id="customSelector"
-              name="rating-input"
-              label="Min rating : "
+              defaultMinValue="1"
+              defaultMaxValue="4"
+              onMinRatingChange={updateMinRating}
+              onMaxRatingChange={updateMaxRating}
+              minId="customSelectorMin"
+              maxId="customSelectorMax"
+              minName="rating-input-min"
+              maxName="rating-input-max"
+              label="Rating : "
               min="0"
               max="5"
-              type="range"
               step="0.5"
             />
           </InputElement>
@@ -123,7 +132,9 @@ const Hotels = () => {
         </ButtonComponent>
         <HotelContainer>
           {apiresult
-            .filter((hotel) => hotel.rating > rating)
+            .filter(
+              (hotel) => hotel.rating > minRating && hotel.rating < maxRating
+            )
             .map((i) => {
               return (
                 <HotelDetails key={i.name} ratings={i.rating}>

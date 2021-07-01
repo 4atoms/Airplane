@@ -1,11 +1,11 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Hotels from "../Hotels/hotels";
+import Hotels from "../Hotels";
 import Homepage from "../Homepage/index";
 import Flights from "../Flights/flights";
 import Footer from "../../Components/Footer/footer";
 import Navbar from "../../Components/Navbar/Navbar";
-import ContactUs from "../ContactUs/contactus";
+import ContactUs from "../ContactUs";
 // import Travelblog from '../Homepage/TravelBlog/travelblog';
 
 const App = () => {

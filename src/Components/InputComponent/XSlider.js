@@ -1,58 +1,96 @@
 import React, { useState, useEffect } from "react";
-import styled from "styled-components";
-import { string, number } from "prop-types";
+import { string, number, func } from "prop-types";
+import { Label, XSliderWrapper, RangeInput } from "./XSlider.style";
 
-const XSlider = ({ defaultValue, label, ...props }) => {
-  const [value, setValue] = useState(defaultValue);
+const XSlider = ({
+  defaultMinValue,
+  defaultMaxValue,
+  label,
+  onMinRatingChange,
+  onMaxRatingChange,
+  minId,
+  maxId,
+  minName,
+  maxName,
+}) => {
+  const [minValue, setMinValue] = useState(defaultMinValue);
+  const [maxValue, setMaxValue] = useState(defaultMaxValue);
 
   useEffect(() => {
-    setValue(defaultValue);
-  }, [defaultValue]);
+    console.log("called", { defaultMinValue }, { defaultMaxValue });
+    setMinValue(defaultMinValue);
+    setMaxValue(defaultMaxValue);
+  }, []);
 
-  // useEffect(() => {
-  //     setValue(value)
-  // },[value]);
+  useEffect(() => {
+    setMinValue(minValue);
+  }, [minValue]);
 
-  const XSliderWrapper = styled.div`
-    & > input : {
-      -webkit-appearance: none;
-      width: 100%;
-      height: 10px;
-      opacity: 0.7;
-      -webkit-transition: 0.2s;
-      transition: opacity 0.2s;
-    }
+  useEffect(() => {
+    setMaxValue(maxValue);
+  }, [maxValue]);
 
-    & > label : {
-      font-size: 10px;
-    }
-  `;
+  const handleMinRating = (ev) => {
+    const {
+      target: { value },
+    } = ev;
+    setMinValue(value);
+    console.log(minValue);
+    onMinRatingChange(minValue);
+  };
 
-  const handleRating = (e) => {
-    setValue(e.value);
-    console.log(e.value);
-    props.onRatingChange(e.value);
+  const handleMaxRating = (ev) => {
+    const {
+      target: { value },
+    } = ev;
+    setMaxValue(value);
+    console.log(maxValue);
+    onMaxRatingChange(maxValue);
   };
 
   return (
     <XSliderWrapper>
-      <label>{label}</label>
-      <span>{value}</span>
-      <input
-        onChange={(e) => handleRating({ value: e.target.value })}
-        {...props}
-      ></input>
+      <div>
+        <Label>{label}</Label>
+        <span>
+          Between {minValue} and {maxValue}
+        </span>
+      </div>
+      <RangeInput
+        type="range"
+        value={minValue}
+        onChange={(ev) => handleMinRating(ev)}
+        id={minId}
+        name={minName}
+        min="0"
+        max="5"
+        step="0.5"
+      ></RangeInput>
+      <RangeInput
+        type="range"
+        value={maxValue}
+        onChange={(ev) => handleMaxRating(ev)}
+        id={maxId}
+        name={maxName}
+        min="0"
+        max="5"
+        step="0.5"
+      ></RangeInput>
     </XSliderWrapper>
   );
 };
 
 XSlider.defaultValue = {
-  defaultValue: 3,
+  defaultMinValue: "1",
+  defaultMaxValue: "4",
+  onRatingChange: () => {},
 };
 
 XSlider.propTypes = {
-  defaultValue: number,
+  defaultMinValue: number,
+  defaultMaxValue: number,
   label: string,
+  onRatingChange: func,
 };
 
 export default XSlider;
