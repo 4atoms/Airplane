@@ -1,4 +1,12 @@
 import styled from "styled-components";
+import img from "./flightSample.jpg";
+
+export const MainBody = styled.div`
+  background-image: url(${img});
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+`;
 
 export const FHeader = styled.div`
   display: flex;
@@ -9,8 +17,9 @@ export const FHeader = styled.div`
 
 export const FlightSearch = styled.div`
   display: flex;
+  heoght: auto;
   & > div > div {
-    width: 50px;
+    width: 100px;
   }
   & > div > div > input {
     justify-content: center;
@@ -96,22 +105,10 @@ export const Name = styled.span`
   font-weight: bold;
   font-size: 14px;
   color: #999;
-  & > span {
+  & > div {
     color: #555;
     font-size: 17px;
   }
-`;
-
-export const FromPlaceSlip = styled.span`
-  font-size: 30px;
-  top: 20px;
-  left: 410px;
-`;
-
-export const ToPlaceSlip = styled.span`
-  font-size: 30px;
-  top: 20px;
-  left: 530px;
 `;
 
 export const Flight = styled.span`
@@ -122,7 +119,7 @@ export const Flight = styled.span`
   font-weight: bold;
   font-size: 14px;
   color: #999;
-  & > span {
+  & > div {
     color: #555;
     font-size: 17px;
   }
@@ -136,7 +133,7 @@ export const Gate = styled.span`
   font-weight: bold;
   font-size: 14px;
   color: #999;
-  & > span {
+  & > div {
     color: #555;
     font-size: 17px;
   }
@@ -159,7 +156,7 @@ export const Seat = styled.div`
   font-weight: bold;
   font-size: 14px;
   color: #999;
-  & > span {
+  & > div {
     color: #555;
     font-size: 17px;
   }
@@ -173,7 +170,7 @@ export const BoardingTime = styled.div`
   font-weight: bold;
   font-size: 14px;
   color: #999;
-  & > span {
+  & > div {
     color: #555;
     font-size: 17px;
   }
@@ -185,5 +182,33 @@ export const Transit = styled.span`
 `;
 
 export const FlightsDisplay = styled.div`
-  display: ${(props) => (props.isFlight ? "flex" : "none")};
+  display: ${(props) => (props.isFlight ? "block" : "none")};
+`;
+
+export const Fdiv = styled.div`
+  margin-top: 140px;
+`;
+
+export const TimeCol = styled.div`
+  width: 40px;
+  height: 120px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+`;
+
+export const Container = styled.div`
+  display: flex;
+  width: 80px;
+`;
+
+export const Cell = styled.button`
+  width: 40px;
+  height: 20px;
+  display: flex;
+`;
+
+export const TimePicker = styled.input`
+  margin-top: 140px;
+  height: 40px;
+  width: 100px;
 `;
