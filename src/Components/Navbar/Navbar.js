@@ -6,11 +6,13 @@ const Navbar = ({ isColorRed }) => {
   return (
     <MainContent>
       <Brandlogo>
-        <img
-          alt="alt"
-          src="https://imgak.mmtcdn.com/pwa_v3/pwa_hotel_assets/header/logo@2x.png"
-          style={{ width: "50%" }}
-        />
+        <a href = "/">
+          <img
+            alt="alt"
+            src="https://imgak.mmtcdn.com/pwa_v3/pwa_hotel_assets/header/logo@2x.png"
+            style={{ width: "50%" }}
+          />
+        </a>
       </Brandlogo>
 
       <Navbarlinks>
