@@ -11,7 +11,7 @@ import {
   HotelContainer,
   HotelDetails,
 } from "./hotels.style";
-import XSlider from "../../Components/InputComponent/XSlider"
+import XSlider from "../../Components/InputComponent/XSlider";
 import Navbar from "../../Components/Navbar/Navbar";
 import Footer from "../../Components/Footer/footer";
 
@@ -34,8 +34,8 @@ const Hotels = () => {
   };
 
   const updateRating = (rating) => {
-      setRating(rating);
-  }
+    setRating(rating);
+  };
 
   var hotelList;
   const getHotels = async (city) => {
@@ -54,7 +54,6 @@ const Hotels = () => {
     }
     const response = await fetch(api);
     const jsonArray = await response.json();
-    
 
     hotelList = jsonArray.hotels;
     console.log("api response", { hotelList });
@@ -103,8 +102,17 @@ const Hotels = () => {
             <InputComponent type="number" />
           </InputElement>
           <InputElement>
-            <XSlider onRatingChange = {updateRating} id="customSelector" name = "rating-input" label = "Min rating : " min = "0" max = "5" type = "range" step = "0.5"/> 
-            </InputElement>
+            <XSlider
+              onRatingChange={updateRating}
+              id="customSelector"
+              name="rating-input"
+              label="Min rating : "
+              min="0"
+              max="5"
+              type="range"
+              step="0.5"
+            />
+          </InputElement>
         </InputContainer>
         <ButtonComponent>
           <InputComponent
@@ -114,29 +122,31 @@ const Hotels = () => {
           />
         </ButtonComponent>
         <HotelContainer>
-          {apiresult.filter(hotel => hotel.rating > rating).map((i) => {
-            return (
-              <HotelDetails key={i.name} ratings={i.rating}>
-                <div>
-                  <img src={i.image} />
-                </div>
-                <div>{i.name}</div>
-                <div>
+          {apiresult
+            .filter((hotel) => hotel.rating > rating)
+            .map((i) => {
+              return (
+                <HotelDetails key={i.name} ratings={i.rating}>
                   <div>
-                    <div>Rating </div>
-                    <div>{i.rating}</div>
+                    <img src={i.image} />
                   </div>
+                  <div>{i.name}</div>
                   <div>
-                    <div>{i.price}</div>
-                    <p>Per night</p>
+                    <div>
+                      <div>Rating </div>
+                      <div>{i.rating}</div>
+                    </div>
+                    <div>
+                      <div>{i.price}</div>
+                      <p>Per night</p>
+                    </div>
+                    <div>
+                      <input type="button" value="Book now" />
+                    </div>
                   </div>
-                  <div>
-                    <input type="button" value="Book now" />
-                  </div>
-                </div>
-              </HotelDetails>
-            );
-          })}
+                </HotelDetails>
+              );
+            })}
         </HotelContainer>
       </OuterContainer>
       <Footer />

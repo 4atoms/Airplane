@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   Flexcontainer,
   Flexcontainerlogo,
   Flexcontainerlogoinner,
 } from "./travelblog.style";
-import Accordian from "./Accordian";
+
+import Accordian from "../../../Components/Accordian/Accordian";
 
 var blogdata = [
   {
@@ -33,25 +34,26 @@ var blogdata = [
   },
 ];
 
-const accordiandata = [
-  {
-    title: "title 1",
-    info: "#FlyLikeAStar with MakeMyTrip’s New Charter Flight Serv...",
-    id: 1,
-  },
-  {
-    title: "title 2",
-    info: "6 things to do on business trip",
-    id: 2,
-  },
-  {
-    title: "title 3",
-    info: "Your One-Stop Resource For Country-Wise Travel Guidelin...",
-    id: 3,
-  },
-];
+// const accordiandata = [
+//   {
+//     title: "title 1",
+//     info: "#FlyLikeAStar with MakeMyTrip’s New Charter Flight Serv...",
+//     id: 1,
+//   },
+//   {
+//     title: "title 2",
+//     info: "6 things to do on business trip",
+//     id: 2,
+//   },
+//   {
+//     title: "title 3",
+//     info: "Your One-Stop Resource For Country-Wise Travel Guidelin...",
+//     id: 3,
+//   },
+// ];
 
 const Travelblog = () => {
+  useEffect(() => {}, [Accordian]);
   return (
     <>
       <Flexcontainerlogo>
@@ -130,7 +132,6 @@ const Travelblog = () => {
           </Flexcontainerlogoinner>
         </div>
       </Flexcontainerlogo>
-
       <div style={{ backgroundColor: "#9888b51a" }}>
         <h1 style={{ fontSize: "42px" }}>Travel Blog</h1>
         <Flexcontainer>
@@ -152,7 +153,7 @@ const Travelblog = () => {
         {/* {accordiandata.map((accord) => {
           return <Accordian key={accord.id} {...accord}></Accordian>;
         })} */}
-        <Accordian key={accordiandata.id} />
+        <Accordian />
       </div>
     </>
   );

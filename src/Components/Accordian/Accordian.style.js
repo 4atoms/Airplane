@@ -17,3 +17,9 @@ export const Title = styled.div`
   color: #855662b;
   cursor: pointer;
 `;
+
+export const Info = styled.div`
+  max-height: "0px";
+  overflow: hidden;
+  ${({ isShow }) => isShow && `max-height: unset; overflow: visible`}
+`;
