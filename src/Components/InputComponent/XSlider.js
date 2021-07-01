@@ -35,8 +35,8 @@ const XSlider = ({
       target: { value },
     } = ev;
     setMinValue(value);
-    console.log(minValue);
-    onMinRatingChange(minValue);
+    console.log(value);
+    onMinRatingChange(value);
   };
 
   const handleMaxRating = (ev) => {
@@ -44,8 +44,8 @@ const XSlider = ({
       target: { value },
     } = ev;
     setMaxValue(value);
-    console.log(maxValue);
-    onMaxRatingChange(maxValue);
+    console.log(value);
+    onMaxRatingChange(value);
   };
 
   return (
