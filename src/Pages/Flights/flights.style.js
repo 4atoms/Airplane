@@ -10,24 +10,10 @@ export const MainBody = styled.div`
 
 export const FHeader = styled.div`
   display: flex;
+  margin-bottom: 50px;
   justify-content: center;
   background-color: rgba(25, 25, 0, 0.4);
   font-size: 50px;
-`;
-
-export const FlightSearch = styled.div`
-  display: flex;
-  heoght: auto;
-  & > div > div {
-    width: 100px;
-  }
-  & > div > div > input {
-    justify-content: center;
-  }
-  & > div > button {
-    margin-top: 130px;
-    justify-content: center;
-  }
 `;
 
 export const FlightTicket = styled.div`
@@ -65,7 +51,7 @@ export const Airline = styled.span`
 export const Boarding = styled.span`
   position: absolute;
   top: 10px;
-  right: 220px;
+  right: 250px;
   font-family: Arial;
   font-size: 18px;
   color: rgba(255, 255, 255, 0.6);
@@ -82,7 +68,7 @@ export const SubContent = styled.div`
 export const FromPlace = styled.span`
   position: absolute;
   top: 10px;
-  left: 20px;
+  left: 135px;
   font-family: Arial;
   font-size: 38px;
   color: #222;
@@ -91,7 +77,7 @@ export const FromPlace = styled.span`
 export const ToPlace = styled.span`
   position: absolute;
   top: 10px;
-  left: 180px;
+  left: 400px;
   font-family: Arial;
   font-size: 38px;
   color: #222;
@@ -178,37 +164,84 @@ export const BoardingTime = styled.div`
 
 export const Transit = styled.span`
   position: absolute;
-  margin-left: 105px;
+  top: 20px;
+  left: 285px;
+  font-family: Arial;
+  font-size: 20px;
+  color: #222;
 `;
 
 export const FlightsDisplay = styled.div`
   display: ${(props) => (props.isFlight ? "block" : "none")};
 `;
 
-export const Fdiv = styled.div`
-  margin-top: 140px;
+export const FlexOutter = styled.ul`
+  top: 500px;
+  max-width: 800px;
+  margin: 0 auto;
+  list-style-type: none;
+  padding: 0;
+  & > li {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  & > li:not(:last-child) {
+    margin-bottom: 20px;
+  }
+  & > li > label:not(:last-child) {
+    flex: 1 0 250px;
+    background-color: rgba(184, 131, 165);
+  }
+  max-width: 220px;
+  & > li > label + * {
+    flex: 1 0 220px;
+  }
+  & > li > div {
+    padding: 15px;
+    border: none;
+    background-color: white;
+  }
+  & > li > input {
+    padding: 15px;
+    border: none;
+  }
+  & > li > button {
+    margin-left: auto;
+    padding: 8px 16px;
+    border: none;
+    background: #333;
+    color: #f2f2f2;
+    text-transform: uppercase;
+    letter-spacing: 0.09em;
+    border-radius: 2px;
+  }
 `;
 
-export const TimeCol = styled.div`
-  width: 40px;
-  height: 120px;
-  overflow-y: scroll;
-  overflow-x: hidden;
+export const FlightSearch = styled.div`
+  display: ${(props) => (props.isSearch ? "flex" : "none")};
+  width: 80%;
+  max-width: 1200px;
+  margin: 0 auto;
+  & > * {
+    box-sizing: border-box;
+  }
 `;
 
-export const Container = styled.div`
-  display: flex;
-  width: 80px;
+export const BlueDiv = styled.div`
+  padding: 15px;
+  border: none;
+  background-color: white;
 `;
 
-export const Cell = styled.button`
-  width: 40px;
-  height: 20px;
-  display: flex;
-`;
-
-export const TimePicker = styled.input`
-  margin-top: 140px;
-  height: 40px;
-  width: 100px;
+export const CloseButton = styled.button`
+  top: 7px;
+  border-radius: 3px;
+  height: auto;
+  position: absolute;
+  right: 10px;
+  font-family: Arial;
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.6);
+  background-color: red;
 `;

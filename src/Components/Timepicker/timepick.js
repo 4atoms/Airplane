@@ -6,6 +6,7 @@ import {
   TimePicker,
   OkButton,
   LineBreak,
+  MainTime,
 } from "./timepicker.style";
 import React, { useState, useEffect } from "react";
 
@@ -32,37 +33,39 @@ const TimePick = () => {
   };
   return (
     <>
-      <TimePicker
-        isDrop={isDrop}
-        onClickCapture={dropTime}
-        value={hourvals + ":" + minutevals}
-      ></TimePicker>
-      <Fdiv isDrop={isDrop}>
-        <Container>
-          <TimeCol>
-            {hours.map((x) => {
-              return (
-                <Cell key={x} onClick={() => setHour(x)}>
-                  {x}
-                </Cell>
-              );
-            })}
-          </TimeCol>
-          <TimeCol>
-            {mins.map((x) => {
-              return (
-                <Cell key={x} onClick={() => setMin(x)}>
-                  {x}
-                </Cell>
-              );
-            })}
-          </TimeCol>
-        </Container>
-        <LineBreak />
-        <div>
-          <OkButton onClick={() => setDrop(false)}>ok</OkButton>
-        </div>
-      </Fdiv>
+      <MainTime>
+        <TimePicker
+          isDrop={isDrop}
+          onClickCapture={dropTime}
+          value={hourvals + ":" + minutevals}
+        ></TimePicker>
+        <Fdiv isDrop={isDrop}>
+          <Container>
+            <TimeCol>
+              {hours.map((x) => {
+                return (
+                  <Cell key={x} onClick={() => setHour(x)}>
+                    {x}
+                  </Cell>
+                );
+              })}
+            </TimeCol>
+            <TimeCol>
+              {mins.map((x) => {
+                return (
+                  <Cell key={x} onClick={() => setMin(x)}>
+                    {x}
+                  </Cell>
+                );
+              })}
+            </TimeCol>
+          </Container>
+          <LineBreak />
+          <div>
+            <OkButton onClick={() => setDrop(false)}>ok</OkButton>
+          </div>
+        </Fdiv>
+      </MainTime>
     </>
   );
 };
