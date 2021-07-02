@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import TimePick from "../../Components/Timepicker/timepick";
+import TimePick from "../../Components/Timepicker/index";
 import {
   MainBody,
   FHeader,
@@ -24,8 +24,8 @@ import {
   BlueDiv,
   CloseButton,
 } from "./flights.style";
-import Navbar from "../../Components/Navbar/Navbar";
-import Footer from "../../Components/Footer/footer";
+import Navbar from "../../Components/Navbar/index";
+import Footer from "../../Components/Footer/index";
 
 var flightdata = [
   {

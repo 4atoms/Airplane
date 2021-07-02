@@ -12,8 +12,8 @@ import {
   HotelDetails,
 } from "./hotels.style";
 import XSlider from "../../Components/InputComponent/XSlider"
-import Navbar from "../../Components/Navbar/Navbar";
-import Footer from "../../Components/Footer/footer";
+import Navbar from "../../Components/Navbar";
+import Footer from "../../Components/Footer";
 
 var puneAPI = "https://run.mocky.io/v3/f13753b4-bde1-422d-aa5e-c34768e28d95";
 var bangaloreAPI =
