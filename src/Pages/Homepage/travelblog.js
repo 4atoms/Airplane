@@ -5,7 +5,7 @@ import {
   Flexcontainerlogoinner,
 } from "./travelblog.style";
 
-import Accordian from "../../../Components/Accordian/Accordian";
+import Accordian from "../../Components/Accordian/index";
 
 var blogdata = [
   {
