@@ -1,5 +1,12 @@
 import React from "react";
-import {ContactFlex, Contact_content, Contact_item, CenterAlign, Text, TopPadding} from "./contactus.style"
+import {
+  ContactFlex,
+  Contact_content,
+  Contact_item,
+  CenterAlign,
+  Text,
+  TopPadding,
+} from "./contactus.style";
 
 const ContactUs = () => {
   return (
@@ -24,7 +31,7 @@ const ContactUs = () => {
           </CenterAlign>
           <CenterAlign>
             <TopPadding>
-              <input  type="button" value="Send email" />
+              <input type="button" value="Send email" />
             </TopPadding>
           </CenterAlign>
         </Contact_content>

@@ -3,8 +3,8 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Hotels from "../Hotels";
 import Homepage from "../Homepage/index";
 import Flights from "../Flights";
-import Footer from "../../Components/Footer/footer";
-import Navbar from "../../Components/Navbar/Navbar";
+import Footer from "../../Components/Footer/index";
+import Navbar from "../../Components/Navbar/index";
 import ContactUs from "../ContactUs";
 // import Travelblog from '../Homepage/TravelBlog/travelblog';
 

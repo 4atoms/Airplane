@@ -1,7 +1,7 @@
 import React from "react";
-import Travelblog from "./TravelBlog/travelblog";
-import Navbar from "../../Components/Navbar/Navbar";
-import Footer from "../../Components/Footer/footer";
+import Travelblog from "./travelblog";
+import Navbar from "../../Components/Navbar/index";
+import Footer from "../../Components/Footer/index";
 const Homepage = () => {
   return (
     <div>
