@@ -155,3 +155,39 @@ export const HotelDetails = styled.div`
     border-radius: 0.3em;
   }
 `;
+
+export const HotelDetailsContainer = styled.div`
+  display: flex;
+  background-color: white;
+  opacity: 0.9;
+  margin: 0px 10px 10px;
+
+  & > div:nth-child(1) {
+    flex: 80%;
+    text-align: left;
+    padding-left: 40px;
+
+    & > div {
+      padding-bottom: 10px;
+    }
+  }
+
+  & > div:nth-child(2) {
+    flex: 20%;
+    text-align: left;
+
+    & > div {
+      padding-bottom: 10px;
+
+      & > span {
+        padding-left: 10px;
+        font-size: 10px;
+      }
+    }
+  }
+
+  & > div > div:nth-child(1) {
+    font-weight: bold;
+    font-size: 20px;
+  }
+`;
