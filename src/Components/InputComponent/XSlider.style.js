@@ -2,8 +2,11 @@ import styled from "styled-components";
 
 export const XSliderWrapper = styled.div`
   margin: auto;
-
   position: relative;
+`;
+
+export const LabelContainer = styled.div`
+display: ${(props) => (props.reference === null ? "none" : "block")};
 `;
 
 export const Label = styled.label`
@@ -15,18 +18,7 @@ export const RangeInput = styled.input.attrs({ type: "range" })`
   -webkit-appearance: none;
   -webkit-transition: 0.2s;
   transition: opacity 0.2s;
-
-  &:focus {
-    outline: none;
-  }
-
-  &:focus::-ms-fill-lower {
-    background: #2497e3;
-  }
-
-  &:focus::-ms-fill-upper {
-    background: #2497e3;
-  }
+  display: ${(props) => (props.reference === null ? "none" : "block")};
 
   &::-webkit-slider-runnable-track {
     width: 100%;
@@ -34,6 +26,7 @@ export const RangeInput = styled.input.attrs({ type: "range" })`
     cursor: pointer;
     animate: 0.2s;
     background: #2497e3;
+    -webkit-appearance: none;
     border-radius: 1px;
     box-shadow: none;
     border: 0;
