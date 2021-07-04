@@ -34,23 +34,23 @@ var blogdata = [
   },
 ];
 
-// const accordiandata = [
-//   {
-//     title: "title 1",
-//     info: "#FlyLikeAStar with MakeMyTrip’s New Charter Flight Serv...",
-//     id: 1,
-//   },
-//   {
-//     title: "title 2",
-//     info: "6 things to do on business trip",
-//     id: 2,
-//   },
-//   {
-//     title: "title 3",
-//     info: "Your One-Stop Resource For Country-Wise Travel Guidelin...",
-//     id: 3,
-//   },
-// ];
+const accordiandata = [
+  {
+    title: "title 1",
+    info: "#FlyLikeAStar with MakeMyTrip’s New Charter Flight Serv...",
+    id: 1,
+  },
+  {
+    title: "title 2",
+    info: "6 things to do on business trip",
+    id: 2,
+  },
+  {
+    title: "title 3",
+    info: "Your One-Stop Resource For Country-Wise Travel Guidelin...",
+    id: 3,
+  },
+];
 
 const Travelblog = () => {
   useEffect(() => {}, [Accordian]);
@@ -153,7 +153,7 @@ const Travelblog = () => {
         {/* {accordiandata.map((accord) => {
           return <Accordian key={accord.id} {...accord}></Accordian>;
         })} */}
-        <Accordian />
+        <Accordian data1={[...accordiandata]} />
       </div>
     </>
   );
